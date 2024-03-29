@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>This is the algebra class</h2>
+    <table id="students-table" class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Student Name</th>
+                <th scope="col">Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Yong Min</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>Jessi Pavia</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>Yeser Amin</td>
+                <td>25</td>
+            </tr>
+        </tbody>
+    </table>
+    <!--form 1-->
+    <div class="form-container">
+        <h2>Algebra Class Registration</h2>
+        <form id="algebra-form">
+            <label for="algebra-student">Name:</label>
+            <input type="text" id="algebra-student" name="name" required>
+            <label for="algebra-age">Age:</label>
+            <input type="number" id="algebra-age" name="number" required>
+            <button type="submit">Register student</button>
+        </form>
+    </div>
+    <a href="./index.html">Go Back</a>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+    ></script>
+    <script>
+        document.getElementById('algebra-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var name = document.getElementById('algebra-student').value;
+            var age = document.getElementById('algebra-age').value;
+
+            var tableRow = document.createElement('tr');
+
+            var nameTable = document.createElement('td');
+            nameTable.textContent = name;
+            tableRow.appendChild(nameTable);
+
+            var ageTable = document.createElement('td');
+            ageTable.textContent = age;
+            tableRow.appendChild(ageTable);
+
+            document.getElementById('students-table').getElementsByTagName('tbody')[0].appendChild(tableRow);
+
+            document.getElementById('algebra-student').value = '';
+            document.getElementById('algebra-age').value = '';
+        })
+    </script>
+</body>
+</html>
